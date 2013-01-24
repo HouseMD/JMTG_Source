@@ -1,6 +1,7 @@
 package com.jmtg.game.graphics.panels.handpanel;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.JPanel;
 
@@ -14,14 +15,24 @@ public class HandPanel extends JPanel {
 	}
 
 	public void addCard(Card card) {
-		
 		CardInHand cardInHand = new CardInHand(card);
-		
-		
-
 		cardInHand.setVerticalAlignment(WIDTH);
-
 		this.add(cardInHand, BorderLayout.CENTER);
 	}
 
+	public void removeCard(Card card) {
+		this.remove(getComponentWithCard(card));
+	}
+
+	public Component getComponentWithCard(Card card) {
+		for(Component comp : this.getComponents()) {
+			if(comp instanceof CardInHand) {
+				if(((CardInHand) comp).getName().toLowerCase().equals(card.getName().toLowerCase())) {
+					return comp;
+				}
+			}
+		}
+		return null;
+		
+	}
 }

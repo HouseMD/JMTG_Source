@@ -1,37 +1,27 @@
 package com.jmtg.game.graphics.panels.gameboard;
 
-import java.util.ArrayList;
+import java.awt.BorderLayout;
+import java.awt.image.ImageObserver;
 
+import javax.swing.JPanel;
+
+import com.jmtg.game.Game;
 import com.jmtg.game.cards.Card;
 import com.jmtg.game.players.Side;
 
-public class GameBoard implements Runnable {
+public class GameBoard extends JPanel{
 
-	public ArrayList<BoardCard> boardCards = new ArrayList<BoardCard>();
+	private static final long serialVersionUID = 1L;
 
 	public GameBoard() {
 	}
 	
-	public void addCard(Card card, Side side) {
-		boardCards.add(new BoardCard(card, side));
-	}
-	
-	public void addCard(BoardCard card) {
-		boardCards.add(card);
-	}
-	
-	public BoardCard getBoardCard(BoardCard card) {
-		for (BoardCard bCard: boardCards) {
-			if(bCard.equals(card)) {
-				return bCard;
-			}
-		}
-		return null;
-		
-	}
-
-	@Override
-	public void run() {
+	public void addCard(Card card) {
+		BoardCard bCard = new BoardCard(card, Side.LOCAL);
+		bCard.setVerticalAlignment(ImageObserver.WIDTH);
+		Game.gameBoard.add(bCard, BorderLayout.CENTER);
+		Game.gameBoard.repaint();
+		Game.gameBoard.revalidate();
 	}
 
 }

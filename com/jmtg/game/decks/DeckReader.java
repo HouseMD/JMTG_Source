@@ -26,7 +26,7 @@ public class DeckReader extends Reader {
 	public void parseCards() {
 		for (String msg : read) {
 			for (CardData list : CardData.values()) {
-				if (list.name.equals(msg)) {
+				if (list.name.toLowerCase().equals(msg.toLowerCase())) {
 					cards.add(processedCard(list));
 				}
 			}
@@ -52,7 +52,7 @@ public class DeckReader extends Reader {
 		case PLANSWALKER:
 			break;
 		default:
-			return (new Card(list));
+			return null;
 		}
 		return null;
 	}

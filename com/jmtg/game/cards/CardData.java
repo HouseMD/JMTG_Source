@@ -15,26 +15,37 @@ public enum CardData {
 	// MANA
 	SWAMP("Swamp", "289319", CardType.MANA, null, new CardColor(BasicMana.BLACK), null), //
 	FOREST("Forest", "289328", CardType.MANA, null, new CardColor(BasicMana.GREEN), null), //
-	OVERGROWN_TOMB("Overgrown Tomb", "253680", CardType.MANA, null, new CardColor(BasicMana.GREEN, BasicMana.BLACK), null),
-	// CREATURES
-	ARBOR_ELF("Arbor Elf", "249840", CardType.CREATURE, new ManaCost(0, 0, 0, 1, 0, 0), new CardColor(BasicMana.GREEN), null, 1, 1),
+	OVERGROWN_TOMB("Overgrown Tomb", "253680", CardType.MANA, null, new CardColor(BasicMana.GREEN, BasicMana.BLACK), null), GOLGARI_GUILDGATE("Golgari Guildgate", "270964", CardType.MANA, null, new CardColor(BasicMana.GREEN, BasicMana.BLACK), null),
 
-	RAKDOS_KACKLER("Rakdos Kackler", "253596", CardType.CREATURE, new ManaCost(0, 0, 1, 0, 0, 0), new CardColor(BasicMana.RED), null, 1, 1),
+	// CREATURES
+	ARBOR_ELF("Arbor Elf", "249840", CardType.CREATURE, new ManaCost(0, 0, 0, 1, 0, 0), new CardColor(BasicMana.GREEN), null, 1, 1), RAKDOS_KACKLER("Rakdos Kackler", "253596", CardType.CREATURE, new ManaCost(0, 0, 1, 0, 0, 0), new CardColor(BasicMana.RED), null, 1, 1),
 
 	// GOLGARI DECK //
 
 	// CREATURE
 	DEATHRITE_SHAMAN("Deathrite Shaman", "290529", CardType.CREATURE, new ManaCost(1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0), new CardColor(BasicMana.BLACK, BasicMana.GREEN), null, 1, 2), //
-	LLANOWAR_ELVES("Llanowar Elves", "221892", CardType.CREATURE, new ManaCost(0, 0, 0, 1, 0, 0), new CardColor(BasicMana.GREEN), null, 1, 1),
+	LLANOWAR_ELVES("Llanowar Elves", "221892", CardType.CREATURE, new ManaCost(0, 0, 0, 1, 0, 0), new CardColor(BasicMana.GREEN), null, 1, 1), //
+	VAMPIRE_NIGHTHAWK("Vampire NightHawk", "260989", CardType.CREATURE, new ManaCost(2, 0, 0, 0, 0, 1), new CardColor(BasicMana.BLACK), null, 2, 3), //
+	KNIGHT_OF_INFAMY("Knight of Infamy", "260989", CardType.CREATURE, new ManaCost(1, 0, 0, 0, 0, 1), new CardColor(BasicMana.BLACK), null, 2, 1), //
+	TORMENTED_SOUL("Tormented Soul", "249668", CardType.CREATURE, new ManaCost(1, 0, 0, 0, 0, 0), new CardColor(BasicMana.BLACK), null, 1, 1), //
+	WOLFIR_SILVERHEAR("Wolfir Silverheart", "240090", CardType.CREATURE, new ManaCost(0, 0, 0, 2, 0, 3), new CardColor(BasicMana.GREEN), null, 4, 4), //
+	SLITHERHEAD("Slitherhead", "253586", CardType.CREATURE, new ManaCost(1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0), new CardColor(BasicMana.BLACK, BasicMana.GREEN), null, 1, 1), //
+	GATECREEPER_VINE("Gatecreeper Vine", "289217", CardType.CREATURE, new ManaCost(0, 0, 0, 1, 0, 1), new CardColor(BasicMana.GREEN), null, 4, 4), //
 
 	// SORCERY
-	JARADS_ORDERS("Jarad's Orders", "253633", CardType.SORCERY, new ManaCost(1, 0, 1, 0, 0, 2), new CardColor(BasicMana.GREEN, BasicMana.BLACK), null),
+	JARADS_ORDERS("Jarad's Orders", "253633", CardType.SORCERY, new ManaCost(1, 0, 0, 1, 0, 2), new CardColor(BasicMana.GREEN, BasicMana.BLACK), null), //
+	DIABOLIC_REVELATION("Diabolic Revelation", "278196", CardType.SORCERY, new ManaCost(2, 0, 0, 0, 0, 3), new CardColor(BasicMana.BLACK), null), //
+	DISENTOMB("Disentomb", "259701", CardType.SORCERY, new ManaCost(1, 0, 0, 0, 0, 0), new CardColor(BasicMana.BLACK), null), //
+	ESSENCE_HARVEST("Essence Harvest", "271114", CardType.SORCERY, new ManaCost(1, 0, 0, 0, 0, 2), new CardColor(BasicMana.BLACK), null), //
+	CARAVAN_VIGIL("Caravan Vigil", "234444", CardType.SORCERY, new ManaCost(0, 0, 0, 4, 0, 0), new CardColor(BasicMana.GREEN), null), //
 
 	// INSTANT
-	MURDER("Murder", "259677", CardType.INSTANT, new ManaCost(2, 0, 0, 0, 0, 1), new CardColor(BasicMana.BLACK), null),
+	FOG("Fog", "253673", CardType.INSTANT, new ManaCost(0, 0, 0, 1, 0, 0), new CardColor(BasicMana.GREEN), null), //
+	MURDER("Murder", "259677", CardType.INSTANT, new ManaCost(2, 0, 0, 0, 0, 1), new CardColor(BasicMana.BLACK), null),//
+	ULTIMATE_PRICE("Ultimate Price", "253538", CardType.INSTANT, new ManaCost(1, 0, 0, 0, 0, 1), new CardColor(BasicMana.BLACK), null),//
 
 	// ENCHANTMENT
-	RANCOR("Rancor", "253686", CardType.ENCHANTMENT, new ManaCost(0, 0, 1, 0, 0, 0), new CardColor(BasicMana.GREEN), null);
+	MARK_OF_THE_VAMPIRE("Mark of the vampire", "253723", CardType.ENCHANTMENT, new ManaCost(1, 0, 0, 0, 0, 3), new CardColor(BasicMana.BLACK), null), RANCOR("Rancor", "253686", CardType.ENCHANTMENT, new ManaCost(0, 0, 1, 0, 0, 0), new CardColor(BasicMana.GREEN), null);
 
 	public String name;
 	public String id;

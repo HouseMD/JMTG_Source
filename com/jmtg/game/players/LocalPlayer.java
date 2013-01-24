@@ -2,8 +2,8 @@ package com.jmtg.game.players;
 
 import java.io.File;
 
-import com.jmtg.game.decks.Deck;
 import com.jmtg.game.decks.DeckReader;
+import com.jmtg.game.decks.RandomDeck;
 
 public class LocalPlayer extends Player {
 
@@ -14,7 +14,7 @@ public class LocalPlayer extends Player {
 		super(name_);
 
 		reader = new DeckReader(file);
-		deck = new Deck(name_, reader.cards);
+		deck = new RandomDeck(name_, reader.cards);
 
 	}
 }

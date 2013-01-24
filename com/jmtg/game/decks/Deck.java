@@ -6,7 +6,7 @@ import com.jmtg.game.cards.Card;
 
 public class Deck {
 	protected String name;
-	private ArrayList<Card> cards = new ArrayList<Card>();
+	protected ArrayList<Card> cards = new ArrayList<Card>();
 
 	public Deck(String name_, ArrayList<Card> cards_) {
 		this.name = name_;

@@ -21,6 +21,10 @@ public class CardInHand extends JLabel implements MouseListener {
 		this.setIcon(this.image);
 		addMouseListener(this);
 	}
+	
+	public String getName() {
+		return card.getName();
+	}
 
 	public int getWidth() {
 		return this.image.getIconWidth();
@@ -46,14 +50,15 @@ public class CardInHand extends JLabel implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Game.player.playCard(card);
 
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		
 	}
+	
+	
 
 }

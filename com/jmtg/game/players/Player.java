@@ -2,12 +2,14 @@ package com.jmtg.game.players;
 
 import com.jmtg.game.Game;
 import com.jmtg.game.cards.Card;
+import com.jmtg.game.cards.CardData;
 import com.jmtg.game.decks.Deck;
+import com.jmtg.game.decks.RandomDeck;
 import com.jmtg.game.players.hands.Hand;
 
 public class Player {
 
-	protected Deck deck;
+	protected RandomDeck deck;
 	protected Hand hand = new Hand();
 	protected String name;
 
@@ -29,17 +31,22 @@ public class Player {
 	}
 
 	public void drawCard() {
-
 		Card drew = deck.getCard(0);
-		Game.hand.addCard(drew);
+		Game.handPanel.addCard(drew);
 		this.hand.add(drew);
 		this.deck.removeCard(drew);
 		System.out.println("Drew: " + drew.getName());
 		System.out.println("Cards Left: " + deck.getCards().size());
 	}
-
+	
 	public void playCard(Card card) {
-		this.hand.removeCard(card);
+		Game.handPanel.removeCard(card);
+		Game.handPanel.repaint();
+		Game.handPanel.revalidate();
+		Game.gameBoard.addCard(card);
+		Game.gameBoard.repaint();
+		Game.gameBoard.revalidate();
+		Game.cardPanel.prev.setIcon(new Card(CardData.BACK).getIcon(1));
 		System.out.println("Played: " + card.getName());
 	}
 
