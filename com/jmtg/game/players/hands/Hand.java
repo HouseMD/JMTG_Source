@@ -1,8 +1,8 @@
-package com.jmtg.game.objects.hand;
+package com.jmtg.game.players.hands;
 
 import java.util.ArrayList;
 
-import com.jmtg.game.objects.cards.Card;
+import com.jmtg.game.cards.Card;
 
 public class Hand extends ArrayList<Card> {
 

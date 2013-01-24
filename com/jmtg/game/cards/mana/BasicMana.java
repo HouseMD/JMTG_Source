@@ -1,4 +1,4 @@
-package com.jmtg.game.objects.mana;
+package com.jmtg.game.cards.mana;
 
 public enum BasicMana {
 
