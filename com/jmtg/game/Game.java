@@ -23,8 +23,6 @@ public class Game extends JFrame implements Runnable {
 	private static String path = GetExecutionPath() + seporator + "Deck.txt";
 	private static File file = new File(path);
 
-	// "\\C:\\Users\\Marci\\Desktop\\test\\Deck.txt"
-
 	static Random generator = new Random();
 
 	private static int gameWidth = 1280;
