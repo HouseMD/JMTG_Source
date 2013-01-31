@@ -40,6 +40,10 @@ public class Card {
 		return type;
 	}
 
+	public void tap() {
+
+	}
+
 	public ManaCost getManaCost() {
 		return cost;
 	}

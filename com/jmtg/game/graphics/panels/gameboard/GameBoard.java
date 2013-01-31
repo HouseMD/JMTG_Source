@@ -1,27 +1,19 @@
 package com.jmtg.game.graphics.panels.gameboard;
 
-import java.awt.BorderLayout;
-import java.awt.image.ImageObserver;
-
 import javax.swing.JPanel;
 
-import com.jmtg.game.Game;
-import com.jmtg.game.cards.Card;
-import com.jmtg.game.players.Side;
+import com.jmtg.game.graphics.panels.gameboard.local.LocalBoard;
+import com.jmtg.game.graphics.panels.gameboard.opponent.OpponentBoard;
 
-public class GameBoard extends JPanel{
+public class GameBoard extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
+	public LocalBoard localSide = new LocalBoard();
+	public OpponentBoard opponentSide = new OpponentBoard();
+
 	public GameBoard() {
-	}
-	
-	public void addCard(Card card) {
-		BoardCard bCard = new BoardCard(card, Side.LOCAL);
-		bCard.setVerticalAlignment(ImageObserver.WIDTH);
-		Game.gameBoard.add(bCard, BorderLayout.CENTER);
-		Game.gameBoard.repaint();
-		Game.gameBoard.revalidate();
+		setLayout(null);
 	}
 
 }

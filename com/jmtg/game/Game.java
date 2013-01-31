@@ -17,18 +17,18 @@ import com.jmtg.game.players.LocalPlayer;
 
 public class Game extends JFrame implements Runnable {
 
-	static double version = 0.029;
+	// TODO: fix adding cards to manaBoard.
+
+	static double version = 0.030;
 	private static final long serialVersionUID = 1L;
 
 	static String seporator = File.separator.toString();
 	private static String path = GetExecutionPath() + seporator + "Deck.txt";
-	static String obsolutePath = "\\C:\\Users\\Marci\\Desktop\\test\\Deck.txt";
+	static String obsolutePath = seporator + "C:" + seporator + "Users" + seporator + "Marci" + seporator + "Desktop" + seporator + "test" + seporator + "Deck.txt";
 	private static File file = new File(obsolutePath);
 
 	private static int gameWidth = 1280;
 	private static int gameHeight = 720;
-
-	// ////////////////
 
 	public static LocalPlayer player;
 	public static Game game;
@@ -36,8 +36,6 @@ public class Game extends JFrame implements Runnable {
 	public static GameBoard gameBoard = new GameBoard();
 	public static HandPanel handPanel = new HandPanel();
 	public static CardPreviewPanel cardPanel = new CardPreviewPanel();
-
-	// ////////////////
 
 	public static void main(String args[]) {
 
@@ -47,7 +45,7 @@ public class Game extends JFrame implements Runnable {
 
 		game.setPreferredSize(new Dimension(gameWidth, gameHeight));
 		game.setSize(gameWidth, gameHeight);
-		game.setTitle("JMTG v" + version + " ALPHA");
+		game.setTitle("JMTG v" + version + " DEV");
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.setLayout(null);
 		game.setResizable(false);
@@ -65,11 +63,33 @@ public class Game extends JFrame implements Runnable {
 		handPanel.setBounds(HandpanelX, HandpanelY, panelWidth, panelHeight);
 		handPanel.setBorder(BorderFactory.createTitledBorder("Hand"));
 
-		cardPanel.setBounds(game.getWidth() - (223 + 25), 100, 223 + 15, 310 + 30);
+		cardPanel.setBounds(game.getWidth() - (223 + 25), 5, 223 + 15, 310 + 30);
 		cardPanel.setBorder(BorderFactory.createTitledBorder("Card Preview"));
 
-		gameBoard.setBounds(23, 23, game.getWidth() - (game.getWidth() - (cardPanel.getX() - 23)), game.getHeight() - (game.getHeight() - (handPanel.getY() - 23)));
+		gameBoard.setBounds(5, 5, game.getWidth() - (game.getWidth() - (cardPanel.getX() - 5)), game.getHeight() - (game.getHeight() - (handPanel.getY() - 23)));
 		gameBoard.setBorder(BorderFactory.createTitledBorder("GameBoard"));
+
+		gameBoard.localSide.setBounds(gameBoard.getWidth() - (gameBoard.getWidth() - 5), (gameBoard.getHeight() / 2) + 12, (gameBoard.getWidth() - 12), (gameBoard.getHeight() / 2) - (5 + 12));
+		gameBoard.localSide.setBorder(BorderFactory.createTitledBorder("You"));
+
+		gameBoard.add(gameBoard.localSide);
+
+		gameBoard.opponentSide.setBounds(5, 14, (gameBoard.getWidth() - 12), (gameBoard.getHeight() / 2) - (5 + 12));
+		gameBoard.opponentSide.setBorder(BorderFactory.createTitledBorder("Opponent"));
+
+		gameBoard.add(gameBoard.opponentSide);
+
+		gameBoard.localSide.manaBoard.setBounds(5, (gameBoard.localSide.getHeight() / 2) + 4, gameBoard.localSide.getWidth() - 10, (gameBoard.localSide.getHeight() / 2) - (5 + 5));
+		//gameBoard.localSide.manaBoard.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		gameBoard.localSide.add(gameBoard.localSide.manaBoard);
+
+		gameBoard.localSide.enchantmentBoard.setBounds(5, 14, gameBoard.localSide.getWidth() / 5, (gameBoard.localSide.getHeight() / 2) - (5 + 5));
+		//gameBoard.localSide.enchantmentBoard.setBorder(BorderFactory.createLineBorder(Color.RED));
+		gameBoard.localSide.add(gameBoard.localSide.enchantmentBoard);
+
+		gameBoard.localSide.creatureBoard.setBounds(5 + (gameBoard.localSide.getWidth() / 5), 14, (gameBoard.localSide.getWidth() - 10) - (gameBoard.localSide.getWidth() / 5), (gameBoard.localSide.getHeight() / 2) - (5 + 5));
+		//gameBoard.localSide.creatureBoard.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+		gameBoard.localSide.add(gameBoard.localSide.creatureBoard);
 
 		JButton button = new JButton("Draw");
 		button.addActionListener(new ActionListener() {

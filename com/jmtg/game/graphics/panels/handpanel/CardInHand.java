@@ -1,5 +1,6 @@
 package com.jmtg.game.graphics.panels.handpanel;
 
+import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -8,6 +9,7 @@ import javax.swing.JLabel;
 
 import com.jmtg.game.Game;
 import com.jmtg.game.cards.Card;
+import com.jmtg.game.players.Side;
 
 public class CardInHand extends JLabel implements MouseListener {
 
@@ -20,6 +22,7 @@ public class CardInHand extends JLabel implements MouseListener {
 		this.image = this.card.getIcon(3);
 		this.setIcon(this.image);
 		addMouseListener(this);
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
 	public String getName() {
@@ -50,7 +53,7 @@ public class CardInHand extends JLabel implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		Game.player.playCard(card);
+		Game.player.playCard(card, Side.LOCAL);
 
 	}
 
